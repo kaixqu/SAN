@@ -267,6 +267,7 @@ class SAN(nn.Module):
         return new_targets
 
     def semantic_inference(self, mask_cls, mask_pred):
+        # Had to remove the background class, because the probability there is super high.
         mask_cls = F.softmax(mask_cls, dim=-1)[..., :-1]
         mask_pred = mask_pred.sigmoid()
         semseg = torch.einsum("qc,qhw->chw", mask_cls, mask_pred)

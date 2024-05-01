@@ -106,6 +106,7 @@ class LearnableBgOvClassifier(PredefinedOvClassifier):
 
     def get_classifier_by_vocabulary(self, vocabulary: List[str]):
         cat_embedding = super().get_classifier_by_vocabulary(vocabulary)
+        # Concatenate the background embedding to the category embeddings
         cat_embedding = torch.cat([cat_embedding, self.bg_embed], dim=0)
         cat_embedding = F.normalize(cat_embedding, p=2, dim=-1)
         return cat_embedding

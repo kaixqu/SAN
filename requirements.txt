@@ -7,8 +7,8 @@ submitit
 scikit-image
 wandb
 setuptools
-numpy==1.22.4
-Pillow==9.3.0
+numpy
+Pillow
 pycocotools~=2.0.4
 fvcore
 tabulate
@@ -17,3 +17,4 @@ ftfy
 regex
 opencv-python
 open_clip_torch==2.16.0
+detectron2 @ git+https://github.com/facebookresearch/detectron2.git@v0.6
